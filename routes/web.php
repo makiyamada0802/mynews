@@ -45,6 +45,7 @@ use App\Http\Controllers\ProfileController as PublicProController;
 Route::controller(ProfileController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('profile/create', 'add')->name('profile.add');
     Route::post('profile/create', 'create')->name('profile.create');
-    Route::get('profile/edit', 'add');
+    Route::get('profile/edit', 'edit');
+    Route::post('profile/edit', 'update')->name('profile.update');
     Route::get('/profile', [PublicProfileController::class, 'index'])->name('profile.index');
 });

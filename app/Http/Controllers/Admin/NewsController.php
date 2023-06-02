@@ -55,6 +55,7 @@ class NewsController extends Controller
         }
         return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
+    
     public function edit(Request $request)
     {
         // News Modelからデータを取得する
