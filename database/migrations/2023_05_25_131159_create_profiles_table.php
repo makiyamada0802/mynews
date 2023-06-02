@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('hobby'); 
             $table->string('introduction'); // ニュースの本文を保存するカラム
-            $table->string('image_path')->nullable();  // 画像のパスを保存するカラム
+            
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('profiles');
     }
 };
