@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProfileHistory extends Model
 {
-    use HasFactory;protected $guarded = array('id');
+    use HasFactory;
+    protected $guarded = array('id');
 
     public static $rules = array(
-        'new_id' => 'required',
+        'profile_id' => 'required',
         'edited_at' => 'required',
     );
 }

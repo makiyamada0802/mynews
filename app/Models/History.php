@@ -11,7 +11,7 @@ class History extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'new_id' => 'required',
+        'news_id' => 'required',
         'edited_at' => 'required',
     );
 }

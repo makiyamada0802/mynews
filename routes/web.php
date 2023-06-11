@@ -41,11 +41,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //php 12 課題
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\ProfileController as PublicProController;
 Route::controller(ProfileController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('profile/create', 'add')->name('profile.add');
     Route::post('profile/create', 'create')->name('profile.create');
     Route::get('profile/edit', 'edit');
     Route::post('profile/edit', 'update')->name('profile.update');
-    Route::get('/profile', [PublicProfileController::class, 'index'])->name('profile.index');
+    Route::get('profile', 'add')->name('profile.index');
 });
+
+use App\Http\Controllers\ProfileController as PublicProfileController;
+Route::get('/profile', [PublicProfileController::class, 'index'])->name('profile.index');
