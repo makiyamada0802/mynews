@@ -33,7 +33,7 @@ Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middl
 
 use App\Http\Controllers\NewsController as PublicNewsController;
 Route::get('/', [PublicNewsController::class, 'index'])->name('news.index');
-
+Route::get('/search', [PublicNewsController::class, 'search'])->name('news.search');
 
 Auth::routes();
 

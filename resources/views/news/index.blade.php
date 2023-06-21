@@ -2,6 +2,20 @@
 
 @section('content')
     <div class="container">
+        <div class="col-md-8">
+                <form action="{{ route('news.search') }}" method="get">
+                    <div class="form-group row">
+                        <label class="col-md-2">カテゴリ検索</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="cond_category" >
+                        </div>
+                        <div class="col-md-2">
+                            @csrf
+                            <input type="submit" class="btn btn-primary" value="検索">
+                        </div>
+                    </div>
+                </form>
+            </div>
         <hr color="#c0c0c0">
         @if (!is_null($headline))
             <div class="row">

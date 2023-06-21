@@ -21,5 +21,18 @@ class NewsController extends Controller
         // また View テンプレートに headline、 posts、という変数を渡している
         return view('news.index', ['headline' => $headline, 'posts' => $posts]);
     }
-    
+    public function search(Request $request)
+    {
+        $posts = News::where('category',$request->cond_category)->get()->sortByDesc('updated_at');
+
+        if (count($posts) > 0) {
+            $headline = $posts->shift();
+        } else {
+            $headline = null;
+        }
+
+        // news/index.blade.php ファイルを渡している
+        // また View テンプレートに headline、 posts、という変数を渡している
+        return view('news.index', ['headline' => $headline, 'posts' => $posts]);
+    }
 }
